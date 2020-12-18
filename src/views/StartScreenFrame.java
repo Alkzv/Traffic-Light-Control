@@ -78,11 +78,14 @@ public class StartScreenFrame extends JFrame {
 					trafficLightFrame.setTitle("Traffic Light " + (i + 1));
 					if(i < 3) {
 						trafficLightFrame.setBounds(
-								(dividedScreenWidth * i)+100, dividedScreenHeight - 300, 250, 300);
+								(dividedScreenWidth * i)+100, dividedScreenHeight - 300, 300, 200);
 					} else {
 						trafficLightFrame.setBounds(
-								(dividedScreenWidth * (i-3))+100, dividedScreenHeight + 20, 250, 300);
+								(dividedScreenWidth * (i-3))+100, dividedScreenHeight + 20, 300, 200);
 					}
+					
+
+
 
 					// Open new TrafficLightFrame
 					trafficLightFrame.setVisible(true);

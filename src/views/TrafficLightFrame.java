@@ -3,10 +3,12 @@ package views;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import components.RoundedPanel;
+
 import java.awt.Color;
 import java.awt.Panel;
 import java.awt.GridLayout;
-import javax.swing.JButton;
 
 @SuppressWarnings("serial")
 public class TrafficLightFrame extends JFrame {
@@ -26,33 +28,25 @@ public class TrafficLightFrame extends JFrame {
 		
 		Panel panel = new Panel();
 		panel.setBackground(Color.BLACK);
-		panel.setBounds(28, 10, 136, 243);
+		panel.setBounds(10, 10, 250, 82);
 		contentPane.add(panel);
-		panel.setLayout(new GridLayout(3, 1));
+		panel.setLayout(new GridLayout(1, 3));
 		
-		Panel panel_2 = new Panel();
-		panel.add(panel_2);
-		panel_2.setLayout(null);
+		JPanel redPanel = new RoundedPanel(200);
+		redPanel.setBackground(Color.RED);;
+		redPanel.setOpaque(false);
+		panel.add(redPanel);
 		
-		JButton btnRedLight = new JButton("New button");
-		btnRedLight.setBounds(12, 44, 117, 25);
-		btnRedLight.setBorder(new RoundedBorder(10));
-		panel_2.add(btnRedLight);
+		JPanel yellowPanel = new RoundedPanel(200);
+		yellowPanel.setBackground(Color.YELLOW);
+		yellowPanel.setOpaque(false);
+		panel.add(yellowPanel);
 		
-		Panel panel_3 = new Panel();
-		panel.add(panel_3);
-		panel_3.setLayout(null);
+		JPanel greenPanel = new RoundedPanel(200);
+		greenPanel.setBackground(Color.GREEN);
+		greenPanel.setOpaque(false);
+		panel.add(greenPanel);
 		
-		JButton btnYellowLight = new JButton("New button");
-		btnYellowLight.setBounds(12, 44, 117, 25);
-		panel_3.add(btnYellowLight);
-		
-		Panel panel_1 = new Panel();
-		panel.add(panel_1);
-		panel_1.setLayout(null);
-		
-		JButton btnGreenLight = new JButton("New button");
-		btnGreenLight.setBounds(12, 30, 117, 25);
-		panel_1.add(btnGreenLight);
+
 	}
 }
