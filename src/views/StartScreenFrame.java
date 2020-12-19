@@ -14,6 +14,11 @@ import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JMenuBar;
+import javax.swing.JPopupMenu;
+import java.awt.Component;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 @SuppressWarnings("serial")
 public class StartScreenFrame extends JFrame {
@@ -44,6 +49,12 @@ public class StartScreenFrame extends JFrame {
 		setTitle("Start");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
+		
+		JPopupMenu popupMenu = new JPopupMenu();
+		addPopup(this, popupMenu);
+		
+		JMenuBar menuBar = new JMenuBar();
+		setJMenuBar(menuBar);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -66,34 +77,32 @@ public class StartScreenFrame extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 				// Close StartScreenFrame				
 				dispose();
+				TrafficLightFrame trafficLightFrame = new TrafficLightFrame();
+				int selectedNumber = Integer.valueOf((Integer)cmbInstancesSelect.getSelectedItem());
+				trafficLightFrame.generateTrafficLight(selectedNumber);
 				
-				// Repeat n times based on selected number by the user
-				for(int i = 0; i < Integer.valueOf((Integer)cmbInstancesSelect.getSelectedItem()); i++) {
-
-					Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-					int dividedScreenWidth = (int) screenSize.getWidth() / 3;
-					int dividedScreenHeight = (int) screenSize.getHeight() / 2;
-					
-					TrafficLightFrame trafficLightFrame = new TrafficLightFrame();
-					trafficLightFrame.setTitle("Traffic Light " + (i + 1));
-					if(i < 3) {
-						trafficLightFrame.setBounds(
-								(dividedScreenWidth * i)+100, dividedScreenHeight - 300, 300, 200);
-					} else {
-						trafficLightFrame.setBounds(
-								(dividedScreenWidth * (i-3))+100, dividedScreenHeight + 20, 300, 200);
-					}
-					
-
-
-
-					// Open new TrafficLightFrame
-					trafficLightFrame.setVisible(true);
-				}
-
+				// Open new TrafficLightFrame
+				trafficLightFrame.setVisible(true);
 			}
 		});
 		btnStartInstaces.setBounds(173, 226, 117, 25);
 		contentPane.add(btnStartInstaces);
+	}
+	private static void addPopup(Component component, final JPopupMenu popup) {
+		component.addMouseListener(new MouseAdapter() {
+			public void mousePressed(MouseEvent e) {
+				if (e.isPopupTrigger()) {
+					showMenu(e);
+				}
+			}
+			public void mouseReleased(MouseEvent e) {
+				if (e.isPopupTrigger()) {
+					showMenu(e);
+				}
+			}
+			private void showMenu(MouseEvent e) {
+				popup.show(e.getComponent(), e.getX(), e.getY());
+			}
+		});
 	}
 }
