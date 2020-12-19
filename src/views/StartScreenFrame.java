@@ -1,24 +1,18 @@
 package views;
 
-import java.awt.Dimension;
 import java.awt.EventQueue;
-import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-
-import views.TrafficLightFrame;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+import javax.swing.JMenu;
 import javax.swing.JMenuBar;
-import javax.swing.JPopupMenu;
-import java.awt.Component;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
+import javax.swing.JMenuItem;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
 
 @SuppressWarnings("serial")
 public class StartScreenFrame extends JFrame {
@@ -49,16 +43,37 @@ public class StartScreenFrame extends JFrame {
 		setTitle("Start");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
-		
-		JPopupMenu popupMenu = new JPopupMenu();
-		addPopup(this, popupMenu);
-		
-		JMenuBar menuBar = new JMenuBar();
-		setJMenuBar(menuBar);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		
+		JMenuBar menuBar = new JMenuBar();
+		setJMenuBar(menuBar);
+		
+		JMenu mnHelp = new JMenu("Help");
+		menuBar.add(mnHelp);
+		
+		JMenuItem mntmHelp = new JMenuItem("Help");
+		mntmHelp.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				HelpDialog helpDialog = new HelpDialog();
+				
+				helpDialog.setVisible(true);
+			}
+		});
+		mnHelp.add(mntmHelp);
+		
+		JMenuItem mntmAbout = new JMenuItem("About");
+		mntmAbout.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				AboutDialog aboutDialog = new AboutDialog();
+				
+				aboutDialog.setVisible(true);
+			}
+		});
+		menuBar.add(mntmAbout);
+
 		
 		JLabel lblInstancesQuestion = new JLabel("How  many instances of traffic light do you want");
 		lblInstancesQuestion.setBounds(60, 106, 378, 15);
@@ -66,7 +81,7 @@ public class StartScreenFrame extends JFrame {
 		
 		JComboBox<Integer> cmbInstancesSelect = new JComboBox<Integer>();
 		cmbInstancesSelect.setBounds(60, 144, 87, 24);
-		// Add numbers to select in comboBox
+		// Add numbers to combobox
 		for (int i = 1; i <= 6; i++) {
 			cmbInstancesSelect.addItem(i);
 		}
@@ -85,24 +100,7 @@ public class StartScreenFrame extends JFrame {
 				trafficLightFrame.setVisible(true);
 			}
 		});
-		btnStartInstaces.setBounds(173, 226, 117, 25);
+		btnStartInstaces.setBounds(250, 144, 117, 25);
 		contentPane.add(btnStartInstaces);
-	}
-	private static void addPopup(Component component, final JPopupMenu popup) {
-		component.addMouseListener(new MouseAdapter() {
-			public void mousePressed(MouseEvent e) {
-				if (e.isPopupTrigger()) {
-					showMenu(e);
-				}
-			}
-			public void mouseReleased(MouseEvent e) {
-				if (e.isPopupTrigger()) {
-					showMenu(e);
-				}
-			}
-			private void showMenu(MouseEvent e) {
-				popup.show(e.getComponent(), e.getX(), e.getY());
-			}
-		});
 	}
 }
