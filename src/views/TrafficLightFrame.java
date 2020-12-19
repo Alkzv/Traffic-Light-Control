@@ -11,6 +11,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
+import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -101,11 +102,10 @@ public class TrafficLightFrame extends JFrame {
 		for(int i = trafficLightsQuantity; i < quantity + trafficLightsQuantity; i++) {
 			JPanel trafficLightPanel = new JPanel();
 			trafficLightPanel.setBackground(Color.BLACK);
-			GridBagLayout gblTrafficLightPanel = new GridBagLayout();
-			gblTrafficLightPanel.columnWeights = new double[]{1.0, 1.0, 1.0};
-			gblTrafficLightPanel.rowWeights = new double[]{1.0};
-			trafficLightPanel.setLayout(gblTrafficLightPanel);
-			trafficLightPanel.setPreferredSize(new Dimension(300, 80));
+			GridLayout layout = new GridLayout(1, 4);
+			layout.setHgap(7);
+			trafficLightPanel.setLayout(layout);
+			trafficLightPanel.setPreferredSize(new Dimension(335, 80));
 			GridBagConstraints gbcTrafficLight = new GridBagConstraints();
 			gbcTrafficLight.insets = new Insets(3, 3, 3, 3);
 			
@@ -117,32 +117,18 @@ public class TrafficLightFrame extends JFrame {
 			JPanel redPanel = new RoundedPanel(200);
 			redPanel.setBackground(Color.RED);;
 			redPanel.setOpaque(false);
-			GridBagConstraints gbcRedPanel = new GridBagConstraints();
-			gbcRedPanel.insets = new Insets(10, 10, 10, 10);
-			gbcRedPanel.fill = GridBagConstraints.BOTH;
-			gbcRedPanel.gridx = 0;
-			gbcRedPanel.gridy = 0;
-			trafficLightPanel.add(redPanel, gbcRedPanel);
+			redPanel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
+			trafficLightPanel.add(redPanel);
 			
 			JPanel yellowPanel = new RoundedPanel(200);
 			yellowPanel.setBackground(Color.YELLOW);
 			yellowPanel.setOpaque(false);
-			GridBagConstraints gbcYellowPanel = new GridBagConstraints();
-			gbcYellowPanel.insets = new Insets(10, 10, 10, 10);
-			gbcYellowPanel.fill = GridBagConstraints.BOTH;
-			gbcYellowPanel.gridx = 1;
-			gbcYellowPanel.gridy = 0;
-			trafficLightPanel.add(yellowPanel, gbcYellowPanel);
+			trafficLightPanel.add(yellowPanel);
 			
 			JPanel greenPanel = new RoundedPanel(200);
 			greenPanel.setBackground(Color.GREEN);
 			greenPanel.setOpaque(false);
-			GridBagConstraints gbcGreenPanel = new GridBagConstraints();
-			gbcGreenPanel.insets = new Insets(10, 10, 10, 10);
-			gbcGreenPanel.fill = GridBagConstraints.BOTH;
-			gbcGreenPanel.gridx = 2;
-			gbcGreenPanel.gridy = 0;
-			trafficLightPanel.add(greenPanel, gbcGreenPanel);
+			trafficLightPanel.add(greenPanel);
 			
 			JButton btnCloseTrafficLight = new JButton("X");
 			btnCloseTrafficLight.addActionListener(new ActionListener() {
@@ -150,11 +136,7 @@ public class TrafficLightFrame extends JFrame {
 					removeTrafficLight(trafficLightPanel);
 				}
 			});
-			GridBagConstraints gbcCloseButton = new GridBagConstraints();
-			gbcCloseButton.insets = new Insets(3, 3, 3, 3);
-			gbcCloseButton.gridx = 3;
-			gbcCloseButton.gridy = 0;
-			trafficLightPanel.add(btnCloseTrafficLight, gbcCloseButton);
+			trafficLightPanel.add(btnCloseTrafficLight);
 			
 			trafficLightsList.add(trafficLightPanel);
 		}
