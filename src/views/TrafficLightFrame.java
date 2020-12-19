@@ -16,6 +16,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.border.EmptyBorder;
 
 import components.RoundedPanel;
@@ -38,7 +39,7 @@ public class TrafficLightFrame extends JFrame {
 	    contentPane.setBackground(Color.WHITE);
 	    contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		GridBagLayout gbl_contentPane = new GridBagLayout();
-		gbl_contentPane.columnWeights = new double[]{3.0, 1.0};
+		gbl_contentPane.columnWeights = new double[]{5.0, 1.0};
 		gbl_contentPane.rowWeights = new double[]{1.0};
 		contentPane.setLayout(gbl_contentPane);
 		setContentPane(contentPane);
@@ -49,13 +50,14 @@ public class TrafficLightFrame extends JFrame {
 		gblLightsPanel.columnWeights = new double[]{};
 		gblLightsPanel.rowWeights = new double[]{};
 		trafficLightsPanel.setLayout(gblLightsPanel);
-		
 		GridBagConstraints gbcLightsPanel = new GridBagConstraints();
 		gbcLightsPanel.insets = new Insets(5, 5, 10, 5);
 		gbcLightsPanel.fill = GridBagConstraints.BOTH;
 		gbcLightsPanel.gridx = 0;
 		gbcLightsPanel.gridy = 0;
-		contentPane.add(trafficLightsPanel, gbcLightsPanel);
+		JScrollPane scrollPane = new JScrollPane(trafficLightsPanel);
+        scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+	    contentPane.add(scrollPane, gbcLightsPanel);
 		
 		JPanel actionsPanel = new JPanel();
 		actionsPanel.setLayout(null);
@@ -87,6 +89,7 @@ public class TrafficLightFrame extends JFrame {
 		btnRemoveTrafficLight.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
+				// Get trafficLight from list
 				JPanel trafficLight = trafficLightsList.get(trafficLightsList.size() - 1);
 				
 				removeTrafficLight(trafficLight);
@@ -146,8 +149,7 @@ public class TrafficLightFrame extends JFrame {
 		// Remove trafficLight from List
 		trafficLightsList.remove(trafficLight);
 		// Remove trafficLight from Panel
-		trafficLightsPanel.remove(trafficLight);
-		
+		trafficLightsPanel.remove(trafficLight);	
 		// Update the Panel
 		trafficLightsPanel.revalidate();
 		trafficLightsPanel.repaint();
