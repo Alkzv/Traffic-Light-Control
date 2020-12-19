@@ -19,7 +19,6 @@ import javax.swing.border.EmptyBorder;
 
 import components.RoundedPanel;
 
-@SuppressWarnings("serial")
 public class TrafficLightFrame extends JFrame {
 
 	private JPanel contentPane;
@@ -47,7 +46,7 @@ public class TrafficLightFrame extends JFrame {
 		trafficLightsPanel.setBackground(Color.LIGHT_GRAY);
 		GridBagLayout gblLightsPanel = new GridBagLayout();
 		gblLightsPanel.columnWeights = new double[]{};
-		gblLightsPanel.rowWeights = new double[]{1.0, 1.0};
+		gblLightsPanel.rowWeights = new double[]{};
 		trafficLightsPanel.setLayout(gblLightsPanel);
 		
 		GridBagConstraints gbcLightsPanel = new GridBagConstraints();
@@ -88,12 +87,8 @@ public class TrafficLightFrame extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 				
 				JPanel trafficLight = trafficLightsList.get(trafficLightsList.size() - 1);
-				trafficLightsList.remove(trafficLightsList.size() - 1);
 				
-				trafficLightsPanel.remove(trafficLight);
-				
-				trafficLightsPanel.revalidate();
-				trafficLightsPanel.repaint();
+				removeTrafficLight(trafficLight);
 			}
 		});
 		btnRemoveTrafficLight.setBounds(15, 125, 150, 40);
@@ -103,57 +98,76 @@ public class TrafficLightFrame extends JFrame {
 	public void generateTrafficLight(int quantity) {
 		int trafficLightsQuantity = trafficLightsList.size();
 		
-		for(int i =  trafficLightsQuantity; i < quantity + trafficLightsQuantity; i++) {
-			JPanel panel = new JPanel();
-			panel.setBackground(Color.BLACK);
-			panel.setLayout(new GridLayout(1, 3));
-			panel.setPreferredSize(new Dimension(300, 80));
+		for(int i = trafficLightsQuantity; i < quantity + trafficLightsQuantity; i++) {
+			JPanel trafficLightPanel = new JPanel();
+			trafficLightPanel.setBackground(Color.BLACK);
+			GridBagLayout gblTrafficLightPanel = new GridBagLayout();
+			gblTrafficLightPanel.columnWeights = new double[]{1.0, 1.0, 1.0};
+			gblTrafficLightPanel.rowWeights = new double[]{1.0};
+			trafficLightPanel.setLayout(gblTrafficLightPanel);
+			trafficLightPanel.setPreferredSize(new Dimension(300, 80));
 			GridBagConstraints gbcTrafficLight = new GridBagConstraints();
 			gbcTrafficLight.insets = new Insets(3, 3, 3, 3);
-			System.out.println(trafficLightsList.size());
-			if(i < 3) { 
-				// Fill the first row
-				gbcTrafficLight.gridx = i;
-				gbcTrafficLight.gridy = 0;
-			} else {
-				// Fill the second row
-				gbcTrafficLight.gridx = i-3;
-				gbcTrafficLight.gridy = 1;
-			}
-	
-			trafficLightsPanel.add(panel, gbcTrafficLight);
+			
+			gbcTrafficLight.gridx = i % 3;
+			gbcTrafficLight.gridy = i / 3;
+			
+			trafficLightsPanel.add(trafficLightPanel, gbcTrafficLight);
 			
 			JPanel redPanel = new RoundedPanel(200);
 			redPanel.setBackground(Color.RED);;
 			redPanel.setOpaque(false);
-			panel.add(redPanel);
+			GridBagConstraints gbcRedPanel = new GridBagConstraints();
+			gbcRedPanel.insets = new Insets(10, 10, 10, 10);
+			gbcRedPanel.fill = GridBagConstraints.BOTH;
+			gbcRedPanel.gridx = 0;
+			gbcRedPanel.gridy = 0;
+			trafficLightPanel.add(redPanel, gbcRedPanel);
 			
 			JPanel yellowPanel = new RoundedPanel(200);
 			yellowPanel.setBackground(Color.YELLOW);
 			yellowPanel.setOpaque(false);
-			panel.add(yellowPanel);
+			GridBagConstraints gbcYellowPanel = new GridBagConstraints();
+			gbcYellowPanel.insets = new Insets(10, 10, 10, 10);
+			gbcYellowPanel.fill = GridBagConstraints.BOTH;
+			gbcYellowPanel.gridx = 1;
+			gbcYellowPanel.gridy = 0;
+			trafficLightPanel.add(yellowPanel, gbcYellowPanel);
 			
 			JPanel greenPanel = new RoundedPanel(200);
 			greenPanel.setBackground(Color.GREEN);
 			greenPanel.setOpaque(false);
-			panel.add(greenPanel);
+			GridBagConstraints gbcGreenPanel = new GridBagConstraints();
+			gbcGreenPanel.insets = new Insets(10, 10, 10, 10);
+			gbcGreenPanel.fill = GridBagConstraints.BOTH;
+			gbcGreenPanel.gridx = 2;
+			gbcGreenPanel.gridy = 0;
+			trafficLightPanel.add(greenPanel, gbcGreenPanel);
 			
-			final int index = i;
 			JButton btnCloseTrafficLight = new JButton("X");
 			btnCloseTrafficLight.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
-					JPanel trafficLight = trafficLightsList.get(index);
-					trafficLightsList.remove(index);
-					
-					trafficLightsPanel.remove(trafficLight);
-					
-					trafficLightsPanel.revalidate();
-					trafficLightsPanel.repaint();
+					removeTrafficLight(trafficLightPanel);
 				}
 			});
-			panel.add(btnCloseTrafficLight);
+			GridBagConstraints gbcCloseButton = new GridBagConstraints();
+			gbcCloseButton.insets = new Insets(3, 3, 3, 3);
+			gbcCloseButton.gridx = 3;
+			gbcCloseButton.gridy = 0;
+			trafficLightPanel.add(btnCloseTrafficLight, gbcCloseButton);
 			
-			trafficLightsList.add(panel);
+			trafficLightsList.add(trafficLightPanel);
 		}
+	}
+	
+	public void removeTrafficLight(JPanel trafficLight) {
+		// Remove trafficLight from List
+		trafficLightsList.remove(trafficLight);
+		// Remove trafficLight from Panel
+		trafficLightsPanel.remove(trafficLight);
+		
+		// Update the Panel
+		trafficLightsPanel.revalidate();
+		trafficLightsPanel.repaint();
 	}
 }

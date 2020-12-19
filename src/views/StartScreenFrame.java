@@ -14,7 +14,6 @@ import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-@SuppressWarnings("serial")
 public class StartScreenFrame extends JFrame {
 
 	private JPanel contentPane;
@@ -81,8 +80,8 @@ public class StartScreenFrame extends JFrame {
 		
 		JComboBox<Integer> cmbInstancesSelect = new JComboBox<Integer>();
 		cmbInstancesSelect.setBounds(60, 144, 87, 24);
-		// Add numbers to combobox
-		for (int i = 1; i <= 6; i++) {
+		// Add numbers to comboBox
+		for (int i = 1; i <= 10; i++) {
 			cmbInstancesSelect.addItem(i);
 		}
 		contentPane.add(cmbInstancesSelect);
