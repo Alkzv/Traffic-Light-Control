@@ -47,7 +47,7 @@ public class TrafficLightFrame extends JFrame {
 		trafficLightsPanel.setBackground(Color.LIGHT_GRAY);
 		GridBagLayout gblLightsPanel = new GridBagLayout();
 		gblLightsPanel.columnWeights = new double[]{};
-		gblLightsPanel.rowWeights = new double[]{};
+		gblLightsPanel.rowWeights = new double[]{1.0, 1.0};
 		trafficLightsPanel.setLayout(gblLightsPanel);
 		
 		GridBagConstraints gbcLightsPanel = new GridBagConstraints();
@@ -138,7 +138,19 @@ public class TrafficLightFrame extends JFrame {
 			greenPanel.setOpaque(false);
 			panel.add(greenPanel);
 			
+			final int index = i;
 			JButton btnCloseTrafficLight = new JButton("X");
+			btnCloseTrafficLight.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent arg0) {
+					JPanel trafficLight = trafficLightsList.get(index);
+					trafficLightsList.remove(index);
+					
+					trafficLightsPanel.remove(trafficLight);
+					
+					trafficLightsPanel.revalidate();
+					trafficLightsPanel.repaint();
+				}
+			});
 			panel.add(btnCloseTrafficLight);
 			
 			trafficLightsList.add(panel);
