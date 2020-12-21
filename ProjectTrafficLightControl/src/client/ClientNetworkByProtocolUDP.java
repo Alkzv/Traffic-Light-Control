@@ -25,11 +25,7 @@ public class ClientNetworkByProtocolUDP {
                     TrafficLightState t = TrafficLightState.nextState(TrafficLightState.OFF);
                     params = new NetWrapper(t);
 
-                } else {
-
-                    TrafficLightState t = TrafficLightState.nextState(params.getState());
-                    params = new NetWrapper(t);
-                }
+                } 
 
                 System.out.println("--- CLIENT ---");
 
