@@ -1,8 +1,8 @@
 package client;
 
-import Enums.DatasConnectionsbyProtocolUDP;
-import Enums.NetWrapper;
-import Enums.TrafficLightState;
+import common.DatasConnectionsbyProtocolUDP;
+import common.NetWrapper;
+import common.TrafficLightState;
 import client.view.ViewTrafficLight;
 import java.io.*;
 import java.net.*;
@@ -39,9 +39,7 @@ public class ClientNetworkByProtocolUDP {
                 ObjectInputStream objectInput = new ObjectInputStream(input);
                 netWrapper = (NetWrapper) objectInput.readObject();
                 netWrapper.setState(netWrapper.getState());
-                datagramClientSocket.close();
-                
-                
+                datagramClientSocket.close();         
                 ChangeColorTrafficLight(runViewTrafficLight);
 
             }
@@ -53,13 +51,7 @@ public class ClientNetworkByProtocolUDP {
         }
 
     }
-    
-    public void TesteExit(RunViewTrafficLight view) {
-
-        ViewTrafficLight viewTrafficLight = view.returnInterface();
-        viewTrafficLight.TesteExit();
-
-    }
+   
     public void ChangeColorTrafficLight(RunViewTrafficLight view) {
 
         ViewTrafficLight viewTrafficLight = view.returnInterface();

@@ -5,8 +5,8 @@
  */
 package client.view;
 
-import Enums.TrafficLightState;
-import Enums.NetWrapper;
+import common.TrafficLightState;
+import common.NetWrapper;
 import java.awt.Graphics;
 import viewGeneral.HelpDialog;
 import viewGeneral.DisclaimerDialog;

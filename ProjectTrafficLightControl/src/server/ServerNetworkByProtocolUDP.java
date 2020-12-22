@@ -1,8 +1,8 @@
 package server;
 
-import Enums.DatasConnectionsbyProtocolUDP;
-import Enums.NetWrapper;
-import Enums.TrafficLightState;
+import common.DatasConnectionsbyProtocolUDP;
+import common.NetWrapper;
+import common.TrafficLightState;
 import java.io.*;
 import java.net.*;
 import java.util.Timer;

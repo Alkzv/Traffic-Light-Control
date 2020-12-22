@@ -8,7 +8,7 @@ package client.view;
 import java.awt.Color;
 import java.awt.Graphics;
 import javax.swing.JPanel;
-import Enums.TrafficLightState;
+import common.TrafficLightState;
 
 /**
  *
