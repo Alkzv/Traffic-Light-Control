@@ -4,7 +4,8 @@
  * and open the template in the editor.
  */
 package server.view;
-
+import client.view.ViewTrafficLight;
+import server.RunViewTrafficLightStateConnections;
 import viewGeneral.HelpDialog;
 import viewGeneral.DisclaimerDialog;
 import viewGeneral.AboutDialog;
@@ -13,13 +14,12 @@ import viewGeneral.AboutDialog;
  *
  * @author Lucas Alkimim Chaves
  */
-
 public class ViewTrafficLightStateConnections extends javax.swing.JFrame {
 
+    private String messageJTextLogServer;
     /**
      * Creates new form Iniciar
      */
-    
     public ViewTrafficLightStateConnections() {
 
         initComponents();
@@ -42,7 +42,7 @@ public class ViewTrafficLightStateConnections extends javax.swing.JFrame {
         jLabelBackground = new javax.swing.JLabel();
         jMenuBar2 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuExit = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         helpMenuItem = new javax.swing.JMenuItem();
         aboutMenuItem = new javax.swing.JMenuItem();
@@ -76,14 +76,14 @@ public class ViewTrafficLightStateConnections extends javax.swing.JFrame {
 
         jMenu1.setText("File");
 
-        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/shut-down.png"))); // NOI18N
-        jMenuItem1.setText("Exit");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        jMenuExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/shut-down.png"))); // NOI18N
+        jMenuExit.setText("Exit");
+        jMenuExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                jMenuExitActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem1);
+        jMenu1.add(jMenuExit);
 
         jMenuBar2.add(jMenu1);
 
@@ -123,44 +123,44 @@ public class ViewTrafficLightStateConnections extends javax.swing.JFrame {
 
 
     private void disclaimerMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_disclaimerMenuItemActionPerformed
-        
+
         DisclaimerDialog disclaimerDialog = new DisclaimerDialog(new javax.swing.JFrame(), true);
         disclaimerDialog.setVisible(true);
-        
+
     }//GEN-LAST:event_disclaimerMenuItemActionPerformed
 
     private void helpMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_helpMenuItemActionPerformed
-       
+
         HelpDialog helpDialog = new HelpDialog(new javax.swing.JFrame(), true);
         helpDialog.setVisible(true);
-        
+
     }//GEN-LAST:event_helpMenuItemActionPerformed
 
     private void aboutMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aboutMenuItemActionPerformed
-        
+
         AboutDialog aboutDialog = new AboutDialog(new javax.swing.JFrame(), true);
         aboutDialog.setVisible(true);
-        
+
     }//GEN-LAST:event_aboutMenuItemActionPerformed
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    private void jMenuExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuExitActionPerformed
+
+        ViewTrafficLight aa = new ViewTrafficLight();
+        
+        aa.teste();
         
         System.exit(0);
         
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+       
 
-    public static void main(String args[]) {
+    }//GEN-LAST:event_jMenuExitActionPerformed
 
-        java.awt.EventQueue.invokeLater(new Runnable() {
-
-            public void run() {
-
-                new ViewTrafficLightStateConnections().setVisible(true);
-
-            }
-
-        });
-
+    public void SetMessagesLogsInJPanelOfTheInterface(String message) {
+        
+        messageJTextLogServer = logServer.getText();
+        messageJTextLogServer += message; 
+        logServer.setText(messageJTextLogServer);
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -172,7 +172,7 @@ public class ViewTrafficLightStateConnections extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar2;
-    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuExit;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JScrollPane jScrollPane2;
     public javax.swing.JTextArea logServer;

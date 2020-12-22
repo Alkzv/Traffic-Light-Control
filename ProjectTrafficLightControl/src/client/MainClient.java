@@ -7,8 +7,9 @@ package client;
 
 /**
  *
- * @author PC
+ * @author Lucas Alkimim Chaves
  */
+
 public class MainClient {
 
     public static void main(String[] args) {

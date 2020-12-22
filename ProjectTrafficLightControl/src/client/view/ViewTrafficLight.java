@@ -6,11 +6,12 @@
 package client.view;
 
 import Enums.TrafficLightState;
+import Enums.NetWrapper;
 import java.awt.Graphics;
+import javax.swing.JFrame;
 import viewGeneral.HelpDialog;
 import viewGeneral.DisclaimerDialog;
 import viewGeneral.AboutDialog;
-import client.ClientNetworkByProtocolUDP;  //////// *******AA*********
 
 /**
  *
@@ -18,7 +19,7 @@ import client.ClientNetworkByProtocolUDP;  //////// *******AA*********
  */
 public class ViewTrafficLight extends javax.swing.JFrame {
 
-    private TrafficLightState state;
+    private NetWrapper netWrapper;
 
     /**
      * Creates new form Iniciar
@@ -43,7 +44,7 @@ public class ViewTrafficLight extends javax.swing.JFrame {
         jLabelBackground = new javax.swing.JLabel();
         jMenuBar2 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuExit = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         helpMenuItem = new javax.swing.JMenuItem();
         aboutMenuItem = new javax.swing.JMenuItem();
@@ -64,14 +65,14 @@ public class ViewTrafficLight extends javax.swing.JFrame {
 
         jMenu1.setText("File");
 
-        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/shut-down.png"))); // NOI18N
-        jMenuItem1.setText("Exit");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        jMenuExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/shut-down.png"))); // NOI18N
+        jMenuExit.setText("Exit");
+        jMenuExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                jMenuExitActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem1);
+        jMenu1.add(jMenuExit);
 
         jMenuBar2.add(jMenu1);
 
@@ -114,13 +115,18 @@ public class ViewTrafficLight extends javax.swing.JFrame {
 
         super.paint(g);
         JDrawingTrafficLight drawingTrafficLight = new JDrawingTrafficLight(g);
-        drawingTrafficLight.ColorTrafficLight(state);
+
+        if (netWrapper != null) {
+
+            drawingTrafficLight.ColorTrafficLight(netWrapper.getState());
+
+        }
 
     }
 
-    public void State(TrafficLightState state) {
+    public void setState(TrafficLightState state) {
 
-        this.state = state;
+        netWrapper = new NetWrapper(state);
 
     }
 
@@ -145,32 +151,19 @@ public class ViewTrafficLight extends javax.swing.JFrame {
 
     }//GEN-LAST:event_aboutMenuItemActionPerformed
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    private void jMenuExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuExitActionPerformed
 
         System.exit(0);
-
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
-    
-    public void start (){
         
-        this.setVisible(true);
-    }
+    }//GEN-LAST:event_jMenuExitActionPerformed
     
-  /*  public static void main(String args[]) {
+    public void teste(){
+        
+        JFrame frame = new JFrame();
 
-        java.awt.EventQueue.invokeLater(new Runnable() {
-
-            public void run() {
-                new ViewTrafficLight().setVisible(true);
-                //ClientNetworkByProtocolUDP clientNetworkByProtocolUDP = new ClientNetworkByProtocolUDP(); //////// *******AA*********
-                //clientNetworkByProtocolUDP.ClientByProtocolUDP();
-
-            }
-
-        });
-
-    }*/
-
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem aboutMenuItem;
     private javax.swing.JMenuItem disclaimerMenuItem;
@@ -179,7 +172,7 @@ public class ViewTrafficLight extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar2;
-    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuExit;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JPanel jPanelTrafficLight;
     // End of variables declaration//GEN-END:variables

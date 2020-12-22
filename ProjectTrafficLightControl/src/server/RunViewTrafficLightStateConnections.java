@@ -9,14 +9,24 @@ import server.view.ViewTrafficLightStateConnections;
 
 /**
  *
- * @author PC
+ * @author Lucas Alkimim Chaves
  */
+
 public class RunViewTrafficLightStateConnections {
 
+    private ViewTrafficLightStateConnections mostra;
+
     public RunViewTrafficLightStateConnections() {
-        
-        ViewTrafficLightStateConnections mostra = new ViewTrafficLightStateConnections();
+
+        mostra = new ViewTrafficLightStateConnections();
         mostra.setVisible(true);
+
+    }
+
+    public ViewTrafficLightStateConnections returnInterface() {
+        
+        return mostra;
         
     }
+
 }

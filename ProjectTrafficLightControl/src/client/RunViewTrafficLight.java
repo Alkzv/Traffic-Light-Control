@@ -9,26 +9,23 @@ import client.view.ViewTrafficLight;
 
 /**
  *
- * @author PC
+ * @author Lucas Alkimim Chaves
  */
+
 public class RunViewTrafficLight {
 
-    private ViewTrafficLight clientWindow;
+    private ViewTrafficLight mostra;
 
     public RunViewTrafficLight() {
-       
-
-            this.clientWindow = new ViewTrafficLight();
-            clientWindow.start();
-            
-           // ViewTrafficLight mostra = new ViewTrafficLight();
-            //mostra.setVisible(true);
+      
+            mostra = new ViewTrafficLight();
+            mostra.setVisible(true);
             
     }
     
-    public ViewTrafficLight getPanelClient()
+    public ViewTrafficLight returnInterface()
     {
-        return clientWindow;
+        return mostra;
     }
 
 }

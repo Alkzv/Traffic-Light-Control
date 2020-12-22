@@ -7,11 +7,12 @@ package Enums;
 
 /**
  *
- * @author PC
+ * @author Lucas Alkimim Chaves
  */
+
 public enum DatasConnectionsbyProtocolUDP {
 
-    DATASCONNECTIONSUDP(9876, 5000, "localhost");
+    DATASCONNECTIONSUDP(9876, 4000, "localhost");
 
     private final int port;
     private final int time;

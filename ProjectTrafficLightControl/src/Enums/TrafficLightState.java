@@ -7,8 +7,9 @@ package Enums;
 
 /**
  *
- * @author PC
+ * @author Lucas Alkimim Chaves
  */
+
 public enum TrafficLightState {
 
     RED,
@@ -20,7 +21,7 @@ public enum TrafficLightState {
     public static TrafficLightState nextState(TrafficLightState current) {
 
         TrafficLightState newState = TrafficLightState.OFF;
-        
+
         switch (current) {
 
             case GREEN:

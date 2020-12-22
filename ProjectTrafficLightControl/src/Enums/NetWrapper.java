@@ -9,9 +9,10 @@ import java.io.Serializable;
 
 /**
  *
- * @author PC
+ * @author Lucas Alkimim Chaves
  */
-public class NetWrapper implements Serializable{
+
+public class NetWrapper implements Serializable {
 
     private TrafficLightState state;
 
@@ -25,11 +26,11 @@ public class NetWrapper implements Serializable{
     public final TrafficLightState getState() {
         return state;
     }
-    
-    public final void setState(TrafficLightState state){
-     
+
+    public final void setState(TrafficLightState state) {
+
         this.state = state;
-        
-    }    
+
+    }
 
 }
