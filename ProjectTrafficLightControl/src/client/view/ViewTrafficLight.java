@@ -156,6 +156,12 @@ public class ViewTrafficLight extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jMenuExitActionPerformed
 
+    public void TesteExit(){
+        
+        System.exit(0);
+        
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem aboutMenuItem;
     private javax.swing.JMenuItem disclaimerMenuItem;

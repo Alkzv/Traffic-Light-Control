@@ -18,7 +18,6 @@ public class ServerNetworkByProtocolUDP {
     private String messagesCompactedtoViewTrafficLightStateConnections;
     private TrafficLightState currentStatus;
     private byte[] receiveData = new byte[1024];
-    private int contador = 0;
     private NetWrapper netWrapper;
     byte[] sendData = new byte[1024];
     DatagramSocket serverSocket;
@@ -53,32 +52,12 @@ public class ServerNetworkByProtocolUDP {
                         sendData = receivePacket.getData();
                         InetAddress IPAddress = receivePacket.getAddress();
                         int port = receivePacket.getPort();
-
                         ByteArrayInputStream input = new ByteArrayInputStream(sendData);
                         ObjectInputStream objectInput = new ObjectInputStream(input);
-
                         netWrapper = (NetWrapper) objectInput.readObject();
-
                         currentStatus = netWrapper.getState();
-
-                        if (netWrapper.getState() == TrafficLightState.OFF) {
-
-                            TrafficLightState t = TrafficLightState.nextState(TrafficLightState.ON);
-                            netWrapper = new NetWrapper(t);
-                            contador = 1;
-
-                        }
-
                         Thread.sleep(DatasConnectionsbyProtocolUDP.DATASCONNECTIONSUDP.getTime());
-
-                        if (contador != 1) {
-
-                            netWrapper.setState(TrafficLightState.nextState(netWrapper.getState()));
-
-                        }
-
-                        contador = 0;
-
+                        netWrapper.setState(TrafficLightState.nextState(netWrapper.getState()));
                         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
                         ObjectOutputStream os = new ObjectOutputStream(outputStream);
                         os.writeObject(netWrapper);

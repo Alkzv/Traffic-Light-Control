@@ -14,7 +14,7 @@ import java.net.*;
 public class ClientNetworkByProtocolUDP {
 
     private byte[] inputData = new byte[1024];
-    private NetWrapper netWrapper;
+    private NetWrapper netWrapper = new NetWrapper(TrafficLightState.ON);
 
     public void ClientByProtocolUDP() {
 
@@ -23,13 +23,6 @@ public class ClientNetworkByProtocolUDP {
             RunViewTrafficLight runViewTrafficLight = new RunViewTrafficLight();
 
             while (true) {
-
-                if (netWrapper == null) {
-
-                    TrafficLightState t = TrafficLightState.nextState(TrafficLightState.OFF);
-                    netWrapper = new NetWrapper(t);
-
-                }
 
                 InetAddress IPAddress = InetAddress.getByName(DatasConnectionsbyProtocolUDP.DATASCONNECTIONSUDP.getHostname());
                 DatagramSocket datagramClientSocket = new DatagramSocket();
@@ -47,6 +40,8 @@ public class ClientNetworkByProtocolUDP {
                 netWrapper = (NetWrapper) objectInput.readObject();
                 netWrapper.setState(netWrapper.getState());
                 datagramClientSocket.close();
+                
+                
                 ChangeColorTrafficLight(runViewTrafficLight);
 
             }
@@ -58,7 +53,13 @@ public class ClientNetworkByProtocolUDP {
         }
 
     }
+    
+    public void TesteExit(RunViewTrafficLight view) {
 
+        ViewTrafficLight viewTrafficLight = view.returnInterface();
+        viewTrafficLight.TesteExit();
+
+    }
     public void ChangeColorTrafficLight(RunViewTrafficLight view) {
 
         ViewTrafficLight viewTrafficLight = view.returnInterface();
