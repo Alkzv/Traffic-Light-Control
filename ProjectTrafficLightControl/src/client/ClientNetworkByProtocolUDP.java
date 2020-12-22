@@ -15,7 +15,7 @@ public class ClientNetworkByProtocolUDP {
     public void ClientByProtocolUDP() {
 
         try {
-
+            
             RunViewTrafficLight runViewTrafficLight = new RunViewTrafficLight();
             
             while (true) {
@@ -42,16 +42,26 @@ public class ClientNetworkByProtocolUDP {
                 ObjectInputStream objectInput = new ObjectInputStream(input);
                 netWrapper = (NetWrapper) objectInput.readObject();
                 netWrapper.setState(netWrapper.getState());
+                datagramClientSocket.close();
                 ChangeColorTrafficLight(runViewTrafficLight);
+                
+               
             }
-
+            
         } catch (IOException | ClassNotFoundException e) {
-
+            
             System.out.println(e);
 
         }
 
     }
+    
+  /*  public void TesteExit(RunViewTrafficLight view) {
+
+        ViewTrafficLight viewTrafficLight = view.returnInterface();
+        viewTrafficLight.TesteExit();
+
+    }*/
 
     public void ChangeColorTrafficLight(RunViewTrafficLight view) {
 

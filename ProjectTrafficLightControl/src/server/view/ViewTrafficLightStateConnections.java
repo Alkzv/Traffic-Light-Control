@@ -7,7 +7,7 @@ package server.view;
 import viewGeneral.HelpDialog;
 import viewGeneral.DisclaimerDialog;
 import viewGeneral.AboutDialog;
-
+import client.view.ViewTrafficLight;
 /**
  *
  * @author Lucas Alkimim Chaves
@@ -142,7 +142,7 @@ public class ViewTrafficLightStateConnections extends javax.swing.JFrame {
     }//GEN-LAST:event_aboutMenuItemActionPerformed
 
     private void jMenuExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuExitActionPerformed
-        
+
         System.exit(0);
         
     }//GEN-LAST:event_jMenuExitActionPerformed
