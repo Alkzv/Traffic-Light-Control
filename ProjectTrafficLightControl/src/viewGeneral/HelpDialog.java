@@ -13,6 +13,8 @@ public class HelpDialog extends javax.swing.JDialog {
 
     /**
      * Creates new form HelpDialog
+     * @param parent
+     * @param modal
      */
     public HelpDialog(java.awt.Frame parent, boolean modal) {
 

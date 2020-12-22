@@ -9,6 +9,10 @@ import java.util.Timer;
 import java.util.TimerTask;
 import server.view.ViewTrafficLightStateConnections;
 
+/**
+ *
+ * @author Lucas Alkimim Chaves
+ */
 public class ServerNetworkByProtocolUDP {
 
     private String messagesCompactedtoViewTrafficLightStateConnections;
@@ -33,76 +37,72 @@ public class ServerNetworkByProtocolUDP {
         }
     }
 
-    public void execute() {
-        Timer timer = null;
-        if (timer == null) {
-            timer = new Timer();
-            TimerTask task = new TimerTask() {
-                @Override
-                public void run() {
-                    try {
-                        ServerByProtocolUDP();
-                    } catch (Exception e) {
-                        System.out.println(e);
-                    }
-                }
-            };
-            timer.schedule(task, DatasConnectionsbyProtocolUDP.DATASCONNECTIONSUDP.getTime(), DatasConnectionsbyProtocolUDP.DATASCONNECTIONSUDP.getTime());
-        }
-    }
-
     public void ServerByProtocolUDP() {
 
-        try {
+        TimerTask task = new TimerTask() {
 
-            while (true) {
+            @Override
+            public void run() {
 
-                DatagramPacket receivePacket = new DatagramPacket(receiveData, receiveData.length);
-                serverSocket.receive(receivePacket);
-                sendData = receivePacket.getData();
-                InetAddress IPAddress = receivePacket.getAddress();
-                int port = receivePacket.getPort();
+                try {
 
-                ByteArrayInputStream input = new ByteArrayInputStream(sendData);
-                ObjectInputStream objectInput = new ObjectInputStream(input);
+                    while (true) {
 
-                netWrapper = (NetWrapper) objectInput.readObject();
+                        DatagramPacket receivePacket = new DatagramPacket(receiveData, receiveData.length);
+                        serverSocket.receive(receivePacket);
+                        sendData = receivePacket.getData();
+                        InetAddress IPAddress = receivePacket.getAddress();
+                        int port = receivePacket.getPort();
 
-                currentStatus = netWrapper.getState();
+                        ByteArrayInputStream input = new ByteArrayInputStream(sendData);
+                        ObjectInputStream objectInput = new ObjectInputStream(input);
 
-                if (netWrapper.getState() == TrafficLightState.OFF) {
+                        netWrapper = (NetWrapper) objectInput.readObject();
 
-                    TrafficLightState t = TrafficLightState.nextState(TrafficLightState.ON);
-                    netWrapper = new NetWrapper(t);
-                    contador = 1;
+                        currentStatus = netWrapper.getState();
+
+                        if (netWrapper.getState() == TrafficLightState.OFF) {
+
+                            TrafficLightState t = TrafficLightState.nextState(TrafficLightState.ON);
+                            netWrapper = new NetWrapper(t);
+                            contador = 1;
+
+                        }
+
+                        Thread.sleep(DatasConnectionsbyProtocolUDP.DATASCONNECTIONSUDP.getTime());
+
+                        if (contador != 1) {
+
+                            netWrapper.setState(TrafficLightState.nextState(netWrapper.getState()));
+
+                        }
+
+                        contador = 0;
+
+                        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+                        ObjectOutputStream os = new ObjectOutputStream(outputStream);
+                        os.writeObject(netWrapper);
+                        byte[] dataOut = outputStream.toByteArray();
+                        DatagramPacket sendPacket = new DatagramPacket(dataOut, dataOut.length, IPAddress, port);
+                        serverSocket.send(sendPacket);
+                        MessagescompactedtoViewTrafficLightStateConnections(runViewTrafficLightStateConnections, IPAddress, port);
+
+                    }
+
+                } catch (IOException | ClassNotFoundException | InterruptedException e) {
+
+                    System.out.println(e);
 
                 }
-
-                Thread.sleep(DatasConnectionsbyProtocolUDP.DATASCONNECTIONSUDP.getTime());
-
-                if (contador != 1) {
-
-                    netWrapper.setState(TrafficLightState.nextState(netWrapper.getState()));
-
-                }
-
-                contador = 0;
-
-                ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-                ObjectOutputStream os = new ObjectOutputStream(outputStream);
-                os.writeObject(netWrapper);
-                byte[] dataOut = outputStream.toByteArray();
-                DatagramPacket sendPacket = new DatagramPacket(dataOut, dataOut.length, IPAddress, port);
-                serverSocket.send(sendPacket);
-                MessagescompactedtoViewTrafficLightStateConnections(runViewTrafficLightStateConnections, IPAddress, port);
 
             }
 
-        } catch (IOException | ClassNotFoundException | InterruptedException e) {
+        };
 
-            System.out.println(e);
+        Timer timer = new Timer("Timer");
 
-        }
+        timer.schedule(task, DatasConnectionsbyProtocolUDP.DATASCONNECTIONSUDP.getTime(), DatasConnectionsbyProtocolUDP.DATASCONNECTIONSUDP.getTime());
+
     }
 
     public void MessagescompactedtoViewTrafficLightStateConnections(RunViewTrafficLightStateConnections view, InetAddress IPAddress, int port) {

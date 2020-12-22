@@ -34,17 +34,17 @@ public class JDrawingTrafficLight extends JPanel {
 
                 case RED:
                     g.setColor(Color.decode("#cc1d00"));
-                    g.fillOval(165 + thickness, 160 + thickness, 90 - 2 * thickness, 90 - 2 * thickness);
+                    g.fillOval(107 + thickness, 160 + thickness, 90 - 2 * thickness, 90 - 2 * thickness);
                     break;
 
                 case YELLOW:
                     g.setColor(Color.decode("#fde910"));
-                    g.fillOval(265 + thickness, 160 + thickness, 90 - 2 * thickness, 90 - 2 * thickness);
+                    g.fillOval(207 + thickness, 160 + thickness, 90 - 2 * thickness, 90 - 2 * thickness);
                     break;
 
                 case GREEN:
                     g.setColor(Color.decode("#00a000"));
-                    g.fillOval(365 + thickness, 160 + thickness, 90 - 2 * thickness, 90 - 2 * thickness);
+                    g.fillOval(307 + thickness, 160 + thickness, 90 - 2 * thickness, 90 - 2 * thickness);
                     break;
 
                 default:
@@ -59,16 +59,16 @@ public class JDrawingTrafficLight extends JPanel {
     public final void BorderTrafficLight() {
 
         g.setColor(Color.decode("#cc1d00"));
-        g.drawOval(165, 160, 90, 90);
-        g.drawOval(165 + thickness, 160 + thickness, 90 - 2 * thickness, 90 - 2 * thickness);
+        g.drawOval(107, 160, 90, 90);
+        g.drawOval(107 + thickness, 160 + thickness, 90 - 2 * thickness, 90 - 2 * thickness);
 
         g.setColor(Color.decode("#fde910"));
-        g.drawOval(265, 160, 90, 90);
-        g.drawOval(265 + thickness, 160 + thickness, 90 - 2 * thickness, 90 - 2 * thickness);
+        g.drawOval(207, 160, 90, 90);
+        g.drawOval(207 + thickness, 160 + thickness, 90 - 2 * thickness, 90 - 2 * thickness);
 
         g.setColor(Color.decode("#00a000"));
-        g.drawOval(365, 160, 90, 90);
-        g.drawOval(365 + thickness, 160 + thickness, 90 - 2 * thickness, 90 - 2 * thickness);
+        g.drawOval(307, 160, 90, 90);
+        g.drawOval(307 + thickness, 160 + thickness, 90 - 2 * thickness, 90 - 2 * thickness);
 
     }
 

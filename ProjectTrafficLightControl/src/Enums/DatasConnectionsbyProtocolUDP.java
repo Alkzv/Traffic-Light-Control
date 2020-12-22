@@ -9,10 +9,9 @@ package Enums;
  *
  * @author Lucas Alkimim Chaves
  */
-
 public enum DatasConnectionsbyProtocolUDP {
 
-    DATASCONNECTIONSUDP(9876, 4000, "localhost");
+    DATASCONNECTIONSUDP(9876, 3000, "localhost");
 
     private final int port;
     private final int time;

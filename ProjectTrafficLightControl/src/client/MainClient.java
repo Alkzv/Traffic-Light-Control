@@ -9,13 +9,12 @@ package client;
  *
  * @author Lucas Alkimim Chaves
  */
-
 public class MainClient {
 
     public static void main(String[] args) {
-            
-            ClientNetworkByProtocolUDP call = new ClientNetworkByProtocolUDP();
-            call.ClientByProtocolUDP();
+
+        ClientNetworkByProtocolUDP call = new ClientNetworkByProtocolUDP();
+        call.ClientByProtocolUDP();
 
     }
 

@@ -14,7 +14,7 @@ public class MainServer {
     public static void main(String[] args) {
 
         ServerNetworkByProtocolUDP call = new ServerNetworkByProtocolUDP();
-        call.execute();
+        call.ServerByProtocolUDP();
 
     }
 

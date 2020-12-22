@@ -11,7 +11,6 @@ import java.io.Serializable;
  *
  * @author Lucas Alkimim Chaves
  */
-
 public class NetWrapper implements Serializable {
 
     private TrafficLightState state;

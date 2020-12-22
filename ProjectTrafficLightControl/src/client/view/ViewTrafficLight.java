@@ -14,7 +14,7 @@ import viewGeneral.AboutDialog;
 
 /**
  *
- * @author Lucas Alkimim Chaves
+ * @author PC
  */
 public class ViewTrafficLight extends javax.swing.JFrame {
 
@@ -57,10 +57,10 @@ public class ViewTrafficLight extends javax.swing.JFrame {
 
         jPanelTrafficLight.setBackground(new java.awt.Color(9, 12, 14));
         jPanelTrafficLight.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED, new java.awt.Color(255, 255, 255), new java.awt.Color(255, 255, 255), new java.awt.Color(255, 255, 255), new java.awt.Color(255, 255, 255)));
-        getContentPane().add(jPanelTrafficLight, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 100, 340, 110));
+        getContentPane().add(jPanelTrafficLight, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 100, 340, 110));
 
         jLabelBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/FundoView1.png"))); // NOI18N
-        getContentPane().add(jLabelBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 670, 390));
+        getContentPane().add(jLabelBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 0, 520, 370));
 
         jMenu1.setText("File");
 
@@ -105,7 +105,7 @@ public class ViewTrafficLight extends javax.swing.JFrame {
 
         setJMenuBar(jMenuBar2);
 
-        setSize(new java.awt.Dimension(627, 402));
+        setSize(new java.awt.Dimension(505, 402));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -151,15 +151,11 @@ public class ViewTrafficLight extends javax.swing.JFrame {
     }//GEN-LAST:event_aboutMenuItemActionPerformed
 
     private void jMenuExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuExitActionPerformed
-        
+
         System.exit(0);
-        
+
     }//GEN-LAST:event_jMenuExitActionPerformed
-    
-    /*public void TesteExit(){
-        
-        System.exit(0);
-    }*/
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem aboutMenuItem;
     private javax.swing.JMenuItem disclaimerMenuItem;

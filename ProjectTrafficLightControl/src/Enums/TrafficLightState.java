@@ -9,7 +9,6 @@ package Enums;
  *
  * @author Lucas Alkimim Chaves
  */
-
 public enum TrafficLightState {
 
     RED,

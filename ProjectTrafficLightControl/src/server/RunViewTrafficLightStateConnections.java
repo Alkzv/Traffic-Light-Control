@@ -11,7 +11,6 @@ import server.view.ViewTrafficLightStateConnections;
  *
  * @author Lucas Alkimim Chaves
  */
-
 public class RunViewTrafficLightStateConnections {
 
     private ViewTrafficLightStateConnections mostra;
@@ -24,9 +23,9 @@ public class RunViewTrafficLightStateConnections {
     }
 
     public ViewTrafficLightStateConnections returnInterface() {
-        
+
         return mostra;
-        
+
     }
 
 }

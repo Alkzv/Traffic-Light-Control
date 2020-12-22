@@ -4,24 +4,26 @@
  * and open the template in the editor.
  */
 package server.view;
+
 import viewGeneral.HelpDialog;
 import viewGeneral.DisclaimerDialog;
 import viewGeneral.AboutDialog;
-import client.view.ViewTrafficLight;
+
 /**
  *
- * @author Lucas Alkimim Chaves
+ * @author PC
  */
 public class ViewTrafficLightStateConnections extends javax.swing.JFrame {
 
     private String messageJTextLogServer;
+
     /**
      * Creates new form Iniciar
      */
     public ViewTrafficLightStateConnections() {
 
         initComponents();
-        
+
     }
 
     /**
@@ -144,15 +146,15 @@ public class ViewTrafficLightStateConnections extends javax.swing.JFrame {
     private void jMenuExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuExitActionPerformed
 
         System.exit(0);
-        
+
     }//GEN-LAST:event_jMenuExitActionPerformed
 
     public void SetMessagesLogsInJPanelOfTheInterface(String message) {
-        
+
         messageJTextLogServer = logServer.getText();
-        messageJTextLogServer += message; 
+        messageJTextLogServer += message;
         logServer.setText(messageJTextLogServer);
-        
+
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

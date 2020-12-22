@@ -7,6 +7,10 @@ import client.view.ViewTrafficLight;
 import java.io.*;
 import java.net.*;
 
+/**
+ *
+ * @author Lucas Alkimim Chaves
+ */
 public class ClientNetworkByProtocolUDP {
 
     private byte[] inputData = new byte[1024];
@@ -15,9 +19,9 @@ public class ClientNetworkByProtocolUDP {
     public void ClientByProtocolUDP() {
 
         try {
-            
+
             RunViewTrafficLight runViewTrafficLight = new RunViewTrafficLight();
-            
+
             while (true) {
 
                 if (netWrapper == null) {
@@ -44,24 +48,16 @@ public class ClientNetworkByProtocolUDP {
                 netWrapper.setState(netWrapper.getState());
                 datagramClientSocket.close();
                 ChangeColorTrafficLight(runViewTrafficLight);
-                
-               
+
             }
-            
+
         } catch (IOException | ClassNotFoundException e) {
-            
+
             System.out.println(e);
 
         }
 
     }
-    
-  /*  public void TesteExit(RunViewTrafficLight view) {
-
-        ViewTrafficLight viewTrafficLight = view.returnInterface();
-        viewTrafficLight.TesteExit();
-
-    }*/
 
     public void ChangeColorTrafficLight(RunViewTrafficLight view) {
 

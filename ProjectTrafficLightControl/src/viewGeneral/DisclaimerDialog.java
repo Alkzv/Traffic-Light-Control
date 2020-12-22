@@ -13,6 +13,8 @@ public class DisclaimerDialog extends javax.swing.JDialog {
 
     /**
      * Creates new form DisclaimerDialog
+     * @param parent
+     * @param modal
      */
     public DisclaimerDialog(java.awt.Frame parent, boolean modal) {
         
