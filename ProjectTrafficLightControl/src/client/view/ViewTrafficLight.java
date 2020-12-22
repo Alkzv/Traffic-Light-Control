@@ -8,7 +8,6 @@ package client.view;
 import Enums.TrafficLightState;
 import Enums.NetWrapper;
 import java.awt.Graphics;
-import javax.swing.JFrame;
 import viewGeneral.HelpDialog;
 import viewGeneral.DisclaimerDialog;
 import viewGeneral.AboutDialog;
@@ -152,18 +151,11 @@ public class ViewTrafficLight extends javax.swing.JFrame {
     }//GEN-LAST:event_aboutMenuItemActionPerformed
 
     private void jMenuExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuExitActionPerformed
-
+        
         System.exit(0);
         
     }//GEN-LAST:event_jMenuExitActionPerformed
     
-    public void teste(){
-        
-        JFrame frame = new JFrame();
-
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        
-    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem aboutMenuItem;
     private javax.swing.JMenuItem disclaimerMenuItem;

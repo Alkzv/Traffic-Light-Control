@@ -4,8 +4,6 @@
  * and open the template in the editor.
  */
 package server.view;
-import client.view.ViewTrafficLight;
-import server.RunViewTrafficLightStateConnections;
 import viewGeneral.HelpDialog;
 import viewGeneral.DisclaimerDialog;
 import viewGeneral.AboutDialog;
@@ -144,15 +142,9 @@ public class ViewTrafficLightStateConnections extends javax.swing.JFrame {
     }//GEN-LAST:event_aboutMenuItemActionPerformed
 
     private void jMenuExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuExitActionPerformed
-
-        ViewTrafficLight aa = new ViewTrafficLight();
-        
-        aa.teste();
         
         System.exit(0);
         
-       
-
     }//GEN-LAST:event_jMenuExitActionPerformed
 
     public void SetMessagesLogsInJPanelOfTheInterface(String message) {

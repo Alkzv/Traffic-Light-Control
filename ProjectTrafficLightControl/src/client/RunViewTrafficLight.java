@@ -23,9 +23,10 @@ public class RunViewTrafficLight {
             
     }
     
-    public ViewTrafficLight returnInterface()
-    {
+    public ViewTrafficLight returnInterface(){
+        
         return mostra;
+        
     }
 
 }
