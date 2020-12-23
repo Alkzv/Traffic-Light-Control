@@ -58,7 +58,7 @@
             </Property>
             <Property name="lineWrap" type="boolean" value="true"/>
             <Property name="rows" type="int" value="5"/>
-            <Property name="text" type="java.lang.String" value="The Unit Converter is a software that allows the user to make conversions between multiple measures. The main objective is to help people in your calculations and make their life easier.&#xa;&#xa;Made by:&#xa;&#xa;&#x2022; Roque Matheus Gomes Costa&#xa;&#x2022; Lucas Alkimim Chaves&#xa;&#x2022; Henrique Bergamo Shigihara&#xa;&#x2022; Vitor Costa Batista&#xa;&#x2022; Jo&#xe3;o Pedro Cabral Guedes"/>
+            <Property name="text" type="java.lang.String" value="Traffic Light is a software that allows you to simulate traffic lights and their continuous communication with the respective server.&#xa;&#xa;Made by:&#xa;&#xa;&#x2022; Roque Matheus Gomes Costa&#xa;&#x2022; Lucas Alkimim Chaves&#xa;&#x2022; Henrique Bergamo Shigihara&#xa;&#x2022; Vitor Costa Batista&#xa;&#x2022; Jo&#xe3;o Pedro Cabral Guedes&#xa;"/>
             <Property name="wrapStyleWord" type="boolean" value="true"/>
           </Properties>
         </Component>

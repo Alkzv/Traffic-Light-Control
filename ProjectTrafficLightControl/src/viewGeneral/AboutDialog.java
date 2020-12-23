@@ -43,7 +43,7 @@ public class AboutDialog extends javax.swing.JDialog {
         jTextArea1.setFont(new java.awt.Font("Ubuntu", 0, 17)); // NOI18N
         jTextArea1.setLineWrap(true);
         jTextArea1.setRows(5);
-        jTextArea1.setText("The Unit Converter is a software that allows the user to make conversions between multiple measures. The main objective is to help people in your calculations and make their life easier.\n\nMade by:\n\n• Roque Matheus Gomes Costa\n• Lucas Alkimim Chaves\n• Henrique Bergamo Shigihara\n• Vitor Costa Batista\n• João Pedro Cabral Guedes");
+        jTextArea1.setText("Traffic Light is a software that allows you to simulate traffic lights and their continuous communication with the respective server.\n\nMade by:\n\n• Roque Matheus Gomes Costa\n• Lucas Alkimim Chaves\n• Henrique Bergamo Shigihara\n• Vitor Costa Batista\n• João Pedro Cabral Guedes\n");
         jTextArea1.setWrapStyleWord(true);
         jScrollPane1.setViewportView(jTextArea1);
 
