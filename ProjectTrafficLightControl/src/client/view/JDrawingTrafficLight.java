@@ -11,7 +11,9 @@ import javax.swing.JPanel;
 import common.TrafficLightState;
 
 /**
- * accompanies the graphical interface represented in the “ViewTrafficLight” class, and paints the traffic light on it.
+ * accompanies the graphical interface represented in the “ViewTrafficLight”
+ * class, and paints the traffic light on it.
+ *
  * @author Roque Matheus Gomes Costa
  */
 public class JDrawingTrafficLight extends JPanel {
@@ -19,6 +21,12 @@ public class JDrawingTrafficLight extends JPanel {
     private final Graphics g;
     private final int thickness = 3;
 
+    /**
+     * Constructor of the class
+     *
+     * @param g
+     *
+     */
     public JDrawingTrafficLight(Graphics g) {
 
         this.g = g;
@@ -26,6 +34,12 @@ public class JDrawingTrafficLight extends JPanel {
 
     }
 
+    /**
+     * Method of coloring traffic lights according to their state
+     *
+     * @param state
+     *
+     */
     public void ColorTrafficLight(TrafficLightState state) {
 
         if (state != null) {
@@ -56,6 +70,10 @@ public class JDrawingTrafficLight extends JPanel {
 
     }
 
+    /**
+     * Method for drawing traffic light circles
+     *
+     */
     public final void BorderTrafficLight() {
 
         g.setColor(Color.decode("#cc1d00"));

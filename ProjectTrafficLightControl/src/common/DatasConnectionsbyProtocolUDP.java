@@ -6,7 +6,10 @@
 package common;
 
 /**
- * enumeration that holds a set of constants, that is, fixed data used in the client relationship (semaphore) with the server via UDP protocol. Among some of these data we have the constant attributes “port” and “hostname”.
+ * enumeration that holds a set of constants, that is, fixed data used in the
+ * client relationship (semaphore) with the server via UDP protocol. Among some
+ * of these data we have the constant attributes “port”, “hostname” and "time".
+ *
  * @author Lucas Alkimim Chaves
  */
 public enum DatasConnectionsbyProtocolUDP {
@@ -17,6 +20,14 @@ public enum DatasConnectionsbyProtocolUDP {
     private final int time;
     private final String hostname;
 
+    /**
+     * Constructor of the class enum
+     *
+     * @param port
+     * @param time
+     * @param hostname
+     *
+     */
     private DatasConnectionsbyProtocolUDP(int port, int time, String hostname) {
 
         this.port = port;
@@ -25,18 +36,33 @@ public enum DatasConnectionsbyProtocolUDP {
 
     }
 
+    /**
+     * Return port method
+     *
+     * @return int - Number of the port
+     */
     public int getPort() {
 
         return port;
 
     }
 
+    /**
+     * Return time method
+     *
+     * @return int - Number of the time
+     */
     public int getTime() {
 
         return time;
 
     }
 
+    /**
+     * Return hostname method
+     *
+     * @return String - Name of the hostname
+     */
     public String getHostname() {
 
         return hostname;

@@ -8,13 +8,19 @@ package server;
 import server.view.ViewTrafficLightStateConnections;
 
 /**
- * starts the ViewTrafficLightStateConnections graphical interface, which will show the interactions between the server and the clients (traffic lights).
+ * starts the ViewTrafficLightStateConnections graphical interface, which will
+ * show the interactions between the server and the clients (traffic lights).
+ *
  * @author Lucas Alkimim Chaves
  */
 public class RunViewTrafficLightStateConnections {
 
     private ViewTrafficLightStateConnections mostra;
 
+    /**
+     * Constructor of the class
+     *
+     */
     public RunViewTrafficLightStateConnections() {
 
         mostra = new ViewTrafficLightStateConnections();
@@ -22,6 +28,11 @@ public class RunViewTrafficLightStateConnections {
 
     }
 
+    /**
+     * Return interface method
+     *
+     * @return ViewTrafficLightStateConnections - mostra
+     */
     public ViewTrafficLightStateConnections returnInterface() {
 
         return mostra;

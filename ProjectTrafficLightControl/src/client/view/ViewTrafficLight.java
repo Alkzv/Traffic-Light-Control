@@ -13,7 +13,9 @@ import viewGeneral.DisclaimerDialog;
 import viewGeneral.AboutDialog;
 
 /**
- * starts the graphical interface “ViewTrafficLight”, which will show the client (traffic light).
+ * starts the graphical interface “ViewTrafficLight”, which will show the client
+ * (traffic light).
+ *
  * @author Roque Matheus Gomes Costa
  */
 public class ViewTrafficLight extends javax.swing.JFrame {
@@ -109,6 +111,12 @@ public class ViewTrafficLight extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Method to Override paint of the interface
+     *
+     * @param g
+     *
+     */
     @Override
     public void paint(Graphics g) {
 
@@ -123,6 +131,13 @@ public class ViewTrafficLight extends javax.swing.JFrame {
 
     }
 
+    /**
+     * Method that performs a new instance of the NetWrapper class by setting a
+     * new state
+     *
+     *
+     * @param state
+     */
     public void setState(TrafficLightState state) {
 
         netWrapper = new NetWrapper(state);
@@ -156,12 +171,6 @@ public class ViewTrafficLight extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jMenuExitActionPerformed
 
-    public void TesteExit(){
-        
-        System.exit(0);
-        
-    }
-    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem aboutMenuItem;
     private javax.swing.JMenuItem disclaimerMenuItem;

@@ -1,3 +1,8 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package client;
 
 import common.DatasConnectionsbyProtocolUDP;
@@ -9,16 +14,18 @@ import java.net.*;
 
 /**
  *
- * @author Roque Matheus Gomes Costa
- * Responsible class for client interactions (traffic lights) with the server
+ * @author Roque Matheus Gomes Costa Responsible class for client interactions
+ * (traffic lights) with the server
  */
 public class ClientNetworkByProtocolUDP {
 
     private byte[] receiveData = new byte[1024];
     private NetWrapper netWrapper = new NetWrapper(TrafficLightState.ON);
-/**
- * 
- */
+
+    /**
+     * Method that represents of the project client module
+     *
+     */
     public void ClientByProtocolUDP() {
 
         try {
@@ -42,7 +49,7 @@ public class ClientNetworkByProtocolUDP {
                 ObjectInputStream objectInputStream = new ObjectInputStream(byteArrayInputStream);
                 netWrapper = (NetWrapper) objectInputStream.readObject();
                 netWrapper.setState(netWrapper.getState());
-                datagramClientSocket.close();         
+                datagramClientSocket.close();
                 ChangeColorTrafficLight(runViewTrafficLight);
 
             }
@@ -54,10 +61,12 @@ public class ClientNetworkByProtocolUDP {
         }
 
     }
-   /**
-    * 
-    * @param view 
-    */
+
+    /**
+     * Method for change color in traffic light
+     *
+     * @param view
+     */
     public void ChangeColorTrafficLight(RunViewTrafficLight view) {
 
         ViewTrafficLight viewTrafficLight = view.returnInterface();

@@ -1,3 +1,8 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package server;
 
 import common.DatasConnectionsbyProtocolUDP;
@@ -10,7 +15,10 @@ import java.util.TimerTask;
 import server.view.ViewTrafficLightStateConnections;
 
 /**
- * calls the RunViewTrafficLightStateConnections class and performs interactions with customers (traffic lights). Thus, informing and distributing commands in relation to their respective states.
+ * calls the RunViewTrafficLightStateConnections class and performs interactions
+ * with customers (traffic lights). Thus, informing and distributing commands in
+ * relation to their respective states.
+ *
  * @author Lucas Alkimim Chaves
  */
 public class ServerNetworkByProtocolUDP {
@@ -23,6 +31,10 @@ public class ServerNetworkByProtocolUDP {
     DatagramSocket serverSocket;
     RunViewTrafficLightStateConnections runViewTrafficLightStateConnections = new RunViewTrafficLightStateConnections();
 
+    /**
+     * Constructor of the class
+     *
+     */
     public ServerNetworkByProtocolUDP() {
 
         try {
@@ -36,6 +48,10 @@ public class ServerNetworkByProtocolUDP {
         }
     }
 
+    /**
+     * Method that represents of the project server module
+     *
+     */
     public void ServerByProtocolUDP() {
 
         TimerTask task = new TimerTask() {
@@ -84,6 +100,13 @@ public class ServerNetworkByProtocolUDP {
 
     }
 
+    /**
+     * Method that compresses messages to ViewTrafficLightStateConnections
+     *
+     * @param IPAddress
+     * @param port
+     * @param view
+     */
     public void MessagescompactedtoViewTrafficLightStateConnections(RunViewTrafficLightStateConnections view, InetAddress IPAddress, int port) {
 
         messagesCompactedtoViewTrafficLightStateConnections = "***" + IPAddress + ":" + port + "\n" + "Old/previous status: " + currentStatus + "\n" + "New status: " + netWrapper.getState() + "\n\n";

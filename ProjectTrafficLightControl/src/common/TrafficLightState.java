@@ -6,7 +6,9 @@
 package common;
 
 /**
- * enumeration that holds a set of constants in relation to the customer's states (traffic light).
+ * enumeration that holds a set of constants in relation to the customer's
+ * states (traffic light).
+ *
  * @author Lucas Alkimim Chaves
  */
 public enum TrafficLightState {
@@ -17,6 +19,12 @@ public enum TrafficLightState {
     OFF,
     ON;
 
+    /**
+     * Method to designate next traffic light states from their current state
+     *
+     * @param current
+     * @return TrafficLightState - newState
+     */
     public static TrafficLightState nextState(TrafficLightState current) {
 
         TrafficLightState newState = TrafficLightState.OFF;

@@ -8,23 +8,31 @@ package client;
 import client.view.ViewTrafficLight;
 
 /**
- * starts the graphical interface “ViewTrafficLight”, which will show the client (traffic light).
+ * starts the graphical interface “ViewTrafficLight”, which will show the client
+ * (traffic light).
+ *
  * @author Lucas Alkimim Chaves
  */
 public class RunViewTrafficLight {
 
     private ViewTrafficLight call;
 
+    /**
+     * Constructor of the class
+     *
+     */
     public RunViewTrafficLight() {
 
         call = new ViewTrafficLight();
         call.setVisible(true);
 
     }
-/**
- * 
- * @return call
- */
+
+    /**
+     * Return interface method
+     *
+     * @return ViewTrafficLight - call
+     */
     public ViewTrafficLight returnInterface() {
 
         return call;

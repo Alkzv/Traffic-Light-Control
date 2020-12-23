@@ -6,14 +6,17 @@
 package client;
 
 /**
- * calls and executes the class “ClientNetworkByProtocolUDP” that will do all the network treatment for the client module.
+ * calls and executes the class “ClientNetworkByProtocolUDP” that will do all
+ * the network treatment for the client module.
+ *
  * @author Lucas Alkimim Chaves
  */
 public class MainClient {
-/**
- * 
- * @param args 
- */
+
+    /**
+     *
+     * @param args
+     */
     public static void main(String[] args) {
 
         ClientNetworkByProtocolUDP call = new ClientNetworkByProtocolUDP();

@@ -10,7 +10,10 @@ import viewGeneral.DisclaimerDialog;
 import viewGeneral.AboutDialog;
 
 /**
- * graphical interface that will show the interactions between the server and the clients (traffic lights). Briefly, this interface will display server logs.
+ * graphical interface that will show the interactions between the server and
+ * the clients (traffic lights). Briefly, this interface will display server
+ * logs.
+ *
  * @author Lucas Alkimim Chaves
  */
 public class ViewTrafficLightStateConnections extends javax.swing.JFrame {
@@ -149,6 +152,12 @@ public class ViewTrafficLightStateConnections extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jMenuExitActionPerformed
 
+    /**
+     * Method that setting compressed messages in
+     * ViewTrafficLightStateConnections
+     *
+     * @param message
+     */
     public void SetMessagesLogsInJPanelOfTheInterface(String message) {
 
         messageJTextLogServer = logServer.getText();
