@@ -10,7 +10,7 @@ import viewGeneral.DisclaimerDialog;
 import viewGeneral.AboutDialog;
 
 /**
- *
+ * graphical interface that will show the interactions between the server and the clients (traffic lights). Briefly, this interface will display server logs.
  * @author Lucas Alkimim Chaves
  */
 public class ViewTrafficLightStateConnections extends javax.swing.JFrame {

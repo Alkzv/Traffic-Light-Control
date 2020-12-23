@@ -8,7 +8,7 @@ package server;
 import server.view.ViewTrafficLightStateConnections;
 
 /**
- *
+ * starts the ViewTrafficLightStateConnections graphical interface, which will show the interactions between the server and the clients (traffic lights).
  * @author Lucas Alkimim Chaves
  */
 public class RunViewTrafficLightStateConnections {

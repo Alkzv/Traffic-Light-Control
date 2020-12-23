@@ -6,7 +6,7 @@
 package viewGeneral;
 
 /**
- *
+ * graphical interface of program information. Among this information are the program's developers.
  * @author Roque Matheus Gomes Costa
  */
 public class AboutDialog extends javax.swing.JDialog {

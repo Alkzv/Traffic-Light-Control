@@ -11,7 +11,7 @@ import javax.swing.JPanel;
 import common.TrafficLightState;
 
 /**
- *
+ * accompanies the graphical interface represented in the “ViewTrafficLight” class, and paints the traffic light on it.
  * @author Roque Matheus Gomes Costa
  */
 public class JDrawingTrafficLight extends JPanel {

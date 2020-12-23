@@ -6,7 +6,7 @@
 package common;
 
 /**
- *
+ * enumeration that holds a set of constants, that is, fixed data used in the client relationship (semaphore) with the server via UDP protocol. Among some of these data we have the constant attributes “port” and “hostname”.
  * @author Lucas Alkimim Chaves
  */
 public enum DatasConnectionsbyProtocolUDP {

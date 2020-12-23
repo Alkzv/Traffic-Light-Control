@@ -6,7 +6,7 @@
 package viewGeneral;
 
 /**
- *
+ * graphical help interface of the program.
  * @author Roque Matheus Gomes Costa
  */
 public class HelpDialog extends javax.swing.JDialog {

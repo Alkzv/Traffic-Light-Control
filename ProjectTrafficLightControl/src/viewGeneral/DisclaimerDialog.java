@@ -6,7 +6,7 @@
 package viewGeneral;
 
 /**
- *
+ * graphical interface of legal terms of use of the program.
  * @author Roque Matheus Gomes Costa
  */
 public class DisclaimerDialog extends javax.swing.JDialog {

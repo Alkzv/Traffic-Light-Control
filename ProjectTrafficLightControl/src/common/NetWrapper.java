@@ -8,7 +8,7 @@ package common;
 import java.io.Serializable;
 
 /**
- *
+ * packages the commands, which refer to the state of the client (semaphore), on an object transferred over the network.
  * @author Lucas Alkimim Chaves
  */
 public class NetWrapper implements Serializable {

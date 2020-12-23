@@ -6,7 +6,7 @@
 package common;
 
 /**
- *
+ * enumeration that holds a set of constants in relation to the customer's states (traffic light).
  * @author Lucas Alkimim Chaves
  */
 public enum TrafficLightState {

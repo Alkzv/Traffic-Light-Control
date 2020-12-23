@@ -10,12 +10,15 @@ import java.net.*;
 /**
  *
  * @author Roque Matheus Gomes Costa
+ * Responsible class for client interactions (traffic lights) with the server
  */
 public class ClientNetworkByProtocolUDP {
 
     private byte[] receiveData = new byte[1024];
     private NetWrapper netWrapper = new NetWrapper(TrafficLightState.ON);
-
+/**
+ * 
+ */
     public void ClientByProtocolUDP() {
 
         try {
@@ -51,7 +54,10 @@ public class ClientNetworkByProtocolUDP {
         }
 
     }
-   
+   /**
+    * 
+    * @param view 
+    */
     public void ChangeColorTrafficLight(RunViewTrafficLight view) {
 
         ViewTrafficLight viewTrafficLight = view.returnInterface();

@@ -10,7 +10,7 @@ import java.util.TimerTask;
 import server.view.ViewTrafficLightStateConnections;
 
 /**
- *
+ * calls the RunViewTrafficLightStateConnections class and performs interactions with customers (traffic lights). Thus, informing and distributing commands in relation to their respective states.
  * @author Lucas Alkimim Chaves
  */
 public class ServerNetworkByProtocolUDP {

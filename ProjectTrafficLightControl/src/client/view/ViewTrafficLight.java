@@ -13,7 +13,7 @@ import viewGeneral.DisclaimerDialog;
 import viewGeneral.AboutDialog;
 
 /**
- *
+ * starts the graphical interface “ViewTrafficLight”, which will show the client (traffic light).
  * @author Roque Matheus Gomes Costa
  */
 public class ViewTrafficLight extends javax.swing.JFrame {

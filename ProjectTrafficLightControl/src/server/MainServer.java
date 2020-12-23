@@ -6,7 +6,7 @@
 package server;
 
 /**
- *
+ * runs our server by calling the class "ServerNetworkByProtocolUDP".
  * @author Lucas Alkimim Chaves
  */
 public class MainServer {
