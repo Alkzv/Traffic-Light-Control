@@ -14,7 +14,7 @@ import viewGeneral.AboutDialog;
 
 /**
  *
- * @author PC
+ * @author Roque Matheus Gomes Costa
  */
 public class ViewTrafficLight extends javax.swing.JFrame {
 

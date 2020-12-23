@@ -7,7 +7,7 @@ package server;
 
 /**
  *
- * @author PC
+ * @author Lucas Alkimim Chaves
  */
 public class MainServer {
 

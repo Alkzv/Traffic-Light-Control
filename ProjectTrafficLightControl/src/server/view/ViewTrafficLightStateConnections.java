@@ -11,7 +11,7 @@ import viewGeneral.AboutDialog;
 
 /**
  *
- * @author PC
+ * @author Lucas Alkimim Chaves
  */
 public class ViewTrafficLightStateConnections extends javax.swing.JFrame {
 

@@ -12,7 +12,7 @@ import common.TrafficLightState;
 
 /**
  *
- * @author PC
+ * @author Roque Matheus Gomes Costa
  */
 public class JDrawingTrafficLight extends JPanel {
 

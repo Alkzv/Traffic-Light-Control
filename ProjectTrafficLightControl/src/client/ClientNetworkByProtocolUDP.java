@@ -9,7 +9,7 @@ import java.net.*;
 
 /**
  *
- * @author Lucas Alkimim Chaves
+ * @author Roque Matheus Gomes Costa
  */
 public class ClientNetworkByProtocolUDP {
 
