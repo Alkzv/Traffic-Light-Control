@@ -13,7 +13,7 @@ import java.net.*;
  */
 public class ClientNetworkByProtocolUDP {
 
-    private byte[] inputData = new byte[1024];
+    private byte[] receiveData = new byte[1024];
     private NetWrapper netWrapper = new NetWrapper(TrafficLightState.ON);
 
     public void ClientByProtocolUDP() {
@@ -26,18 +26,18 @@ public class ClientNetworkByProtocolUDP {
 
                 InetAddress IPAddress = InetAddress.getByName(DatasConnectionsbyProtocolUDP.DATASCONNECTIONSUDP.getHostname());
                 DatagramSocket datagramClientSocket = new DatagramSocket();
-                ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-                ObjectOutputStream os = new ObjectOutputStream(outputStream);
-                os.writeObject(netWrapper);
-                byte[] sendData = outputStream.toByteArray();
+                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                ObjectOutputStream objectOutputStream = new ObjectOutputStream(byteArrayOutputStream);
+                objectOutputStream.writeObject(netWrapper);
+                byte[] sendData = byteArrayOutputStream.toByteArray();
                 DatagramPacket sendPacket = new DatagramPacket(sendData, sendData.length, IPAddress, DatasConnectionsbyProtocolUDP.DATASCONNECTIONSUDP.getPort());
                 datagramClientSocket.send(sendPacket);
-                DatagramPacket incomingPacket = new DatagramPacket(inputData, inputData.length);
-                datagramClientSocket.receive(incomingPacket);
-                byte[] dataIncoming = incomingPacket.getData();
-                ByteArrayInputStream input = new ByteArrayInputStream(dataIncoming);
-                ObjectInputStream objectInput = new ObjectInputStream(input);
-                netWrapper = (NetWrapper) objectInput.readObject();
+                DatagramPacket receivePacket = new DatagramPacket(receiveData, receiveData.length);
+                datagramClientSocket.receive(receivePacket);
+                byte[] data = receivePacket.getData();
+                ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(data);
+                ObjectInputStream objectInputStream = new ObjectInputStream(byteArrayInputStream);
+                netWrapper = (NetWrapper) objectInputStream.readObject();
                 netWrapper.setState(netWrapper.getState());
                 datagramClientSocket.close();         
                 ChangeColorTrafficLight(runViewTrafficLight);

@@ -52,17 +52,17 @@ public class ServerNetworkByProtocolUDP {
                         sendData = receivePacket.getData();
                         InetAddress IPAddress = receivePacket.getAddress();
                         int port = receivePacket.getPort();
-                        ByteArrayInputStream input = new ByteArrayInputStream(sendData);
-                        ObjectInputStream objectInput = new ObjectInputStream(input);
-                        netWrapper = (NetWrapper) objectInput.readObject();
+                        ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(sendData);
+                        ObjectInputStream objectInputStream = new ObjectInputStream(byteArrayInputStream);
+                        netWrapper = (NetWrapper) objectInputStream.readObject();
                         currentStatus = netWrapper.getState();
                         Thread.sleep(DatasConnectionsbyProtocolUDP.DATASCONNECTIONSUDP.getTime());
                         netWrapper.setState(TrafficLightState.nextState(netWrapper.getState()));
-                        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-                        ObjectOutputStream os = new ObjectOutputStream(outputStream);
-                        os.writeObject(netWrapper);
-                        byte[] dataOut = outputStream.toByteArray();
-                        DatagramPacket sendPacket = new DatagramPacket(dataOut, dataOut.length, IPAddress, port);
+                        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                        ObjectOutputStream objectOutputStream = new ObjectOutputStream(byteArrayOutputStream);
+                        objectOutputStream.writeObject(netWrapper);
+                        byte[] data = byteArrayOutputStream.toByteArray();
+                        DatagramPacket sendPacket = new DatagramPacket(data, data.length, IPAddress, port);
                         serverSocket.send(sendPacket);
                         MessagescompactedtoViewTrafficLightStateConnections(runViewTrafficLightStateConnections, IPAddress, port);
 
